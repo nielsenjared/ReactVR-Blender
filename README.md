@@ -75,12 +75,13 @@ Under your Pano component, add a new Model component:
     obj: asset('untitled.obj')
   }}
   style={{
-    color: "#666",
+    color: "#666"
     transform: [
       {translate: [0, 0, -4]}
     ]
   }}
-/>`
+/>
+`
 
 It will be positioned behind the Text component, so remove backgroundColor from the style.
 
@@ -208,6 +209,8 @@ Copy/paste the Model component below itself, but above Text, change the Z transl
 />`
 
 ##Deployment
+
+
 `npm run bundle`
 
 
