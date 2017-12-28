@@ -4,14 +4,14 @@ https://nielsenjared.github.io/ReactVR-Blender/
 
 ## Getting Started with ReactVR
 
-Install react-vr-cli:
+Install `react-vr-cli`:
 
 `npm install -g react-vr-cli`
 
 Create a new ReactVR app:
 `react-vr init ReactVR-Blender`
 
-Uppercase is the naming convention as react-vr-cli will generate a class component using the name you provide.
+Uppercase is the naming convention as `react-vr-cli` will generate a class component using the name you provide.
 
 `cd ReactVR-Blender`
 `npm start`
@@ -22,7 +22,7 @@ Well, hello there...
 
 ## Hot Reload
 
-Adding hot reloading to your app is great for development. To do so, in vr/client.js, on line 10, just above `...options`, add:
+Adding hot reloading to your app is great for development. To do so, in `vr/client.js`, on line 10, just above `...options`, add:
 `enableHotReload: true,`
 
 ## Creating Equirectangular Panoramic Images with Blender
@@ -51,7 +51,7 @@ Save the .png in the static_assets folder of your ReactVR app.
 
 ## Hacking ReactVR
 
-On line 14 of index.vr.js, replace `chess-world.jpg` with your newly created image.
+On line 14 of `index.vr.js`, replace `chess-world.jpg` with your newly created image.
 
 Save and refresh your app.
 
@@ -59,9 +59,9 @@ Save and refresh your app.
 
 Open a new Blender file, add a mesh, and under File, select Export > Wavefront (.obj).
 
-Save the file in static_assets.
+Save the file in `static_assets`.
 
-In index.vr.js, add `Model` and `Animated` to your react-vr import statement.
+In `index.vr.js`, add `Model` and `Animated` to your `react-vr import` statement.
 
 ```
 import {
@@ -270,7 +270,7 @@ Edit `index.html` along these lines:
 </html>
 ```
 
-If you want to deploy to GitHub pages, like I did, you can either create a `gh-pages` branch or a `docs` folder on `master`. Instructions here: https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/ 
+If you want to deploy to GitHub pages, like I did, you can either create a `gh-pages` branch or a `docs` folder on `master`. Instructions here: https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/
 
 ## Resources
 * https://medium.com/cinematicvr/panoramic-rendering-in-blender-287bee2aab0d
