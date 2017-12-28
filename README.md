@@ -23,7 +23,7 @@ Open http://localhost:8081/vr/
 
 Well, hello there...
 
-## Hot Reload
+### Hot Reload
 
 Adding hot reloading to your app is great for development. To do so, in `vr/client.js`, on line 10, just above `...options`, add:
 `enableHotReload: true,`
