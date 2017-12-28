@@ -13,8 +13,11 @@ Create a new ReactVR app:
 
 Uppercase is the naming convention as `react-vr-cli` will generate a class component using the name you provide.
 
-`cd ReactVR-Blender`
-`npm start`
+Change into the newly created directory and start the app:
+```
+cd ReactVR-Blender
+npm start
+```
 
 Open http://localhost:8081/vr/
 
