@@ -231,4 +231,39 @@ Copy/paste the Model component below itself, but above Text, change the Z transl
 
 ## Deployment
 
+While it's incredibly useful for development, I discovered that hot reload throws an error after bundling which prevents the app from finding static_assets. So comment it out in vr/client.js:
+
+`//enableHotReload: true,`
+
+Then:
+
 `npm run bundle`
+
+You will be prompted to move client.bundle.js and index.bundle.js to a new directory with your index.html. Do so.
+
+Edit index.html along these lines:
+
+```
+<html>
+  <head>
+    <title>ReactVR_Blender</title>
+    <style>body { margin: 0; }</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <!-- When you're ready to deploy your app, update this line to point to your compiled client.bundle.js -->
+    <script src="./client.bundle.js"></script>
+    <script>
+      // Initialize the React VR application
+      ReactVR.init(
+        // When you're ready to deploy your app, update this line to point to
+        // your compiled index.bundle.js
+        './index.bundle.js',
+        // Attach it to the body tag
+        document.body,
+        { assetRoot: './static_assets'}
+      );
+    </script>
+  </body>
+</html>
+```
