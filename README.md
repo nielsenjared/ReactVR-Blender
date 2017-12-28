@@ -2,12 +2,14 @@
 
 ## Getting Started with ReactVR
 
+Install react-vr-cli:
+
 `npm install -g react-vr-cli`
 
 Create a new ReactVR app:
 `react-vr init ReactVR-Blender`
 
-Uppercase is the naming convention as react-vr-cli will generate a component using the name you provide.
+Uppercase is the naming convention as react-vr-cli will generate a class component using the name you provide.
 
 `cd ReactVR-Blender`
 `npm start`
@@ -59,18 +61,21 @@ Save the file in static_assets.
 
 In index.vr.js, add Model and Animated to your react-vr import statement.
 
-`import {
+```
+import {
   AppRegistry,
   asset,
   Pano,
   Text,
   View,
   Model,
-} from 'react-vr';`
+} from 'react-vr';
+```
 
 Under your Pano component, add a new Model component:
 
-`<Model
+```
+<Model
   source={{
     obj: asset('untitled.obj')
   }}
@@ -81,11 +86,12 @@ Under your Pano component, add a new Model component:
     ]
   }}
 />
-`
+```
 
 It will be positioned behind the Text component, so remove backgroundColor from the style.
 
-`<Text
+```
+<Text
   style={{
     fontSize: 0.8,
     fontWeight: '400',
@@ -97,13 +103,15 @@ It will be positioned behind the Text component, so remove backgroundColor from 
     transform: [{translate: [0, 0, -3]}],
   }}>
   hello
-</Text>`
+</Text>
+```
 
 ## Adding Light
 
 From react-vr, import AmbientLight and PointLight:
 
-`import {
+```
+import {
   AppRegistry,
   asset,
   Pano,
@@ -112,11 +120,13 @@ From react-vr, import AmbientLight and PointLight:
   Model,
   AmbientLight,
   PointLight
-} from 'react-vr';`
+} from 'react-vr';
+```
 
 Under the Pano component, add AmbientLight and PointLight components:
 
-`<AmbientLight intensity={0.5} />
+```
+<AmbientLight intensity={0.5} />
 <PointLight
   style={{
     color: 'white',
@@ -124,11 +134,13 @@ Under the Pano component, add AmbientLight and PointLight components:
       {translate: [0, 0, 0]}
     ]
   }}
-/>`
+/>
+```
 
 To the Model component add a `lit` property:
 
-`<Model
+```
+<Model
   lit
   source={{
     obj: asset('untitled.obj')
@@ -139,13 +151,15 @@ To the Model component add a `lit` property:
       {translate: [0, 0, -4]}
     ]
   }}
-/>`
+/>
+```
 
 ## Animating Models
 
 Import from react-vr the Animated component and from react-native the Easing component:
 
-`import {
+```
+import {
   AppRegistry,
   asset,
   Pano,
@@ -159,7 +173,8 @@ Import from react-vr the Animated component and from react-native the Easing com
 
 import {
   Easing
-} from 'react-native';`
+} from 'react-native';
+```
 
 Declare a component to animate using the Animated component:
 
@@ -168,17 +183,20 @@ Declare a component to animate using the Animated component:
 
 In order to animate a model, we need to use state. At the top of the ReactVR_Blender component, add:
 
-`state = {
+```
+state = {
   rotation: new Animated.Value(0)
 }
 
 componentDidMount() {
   this.rotate();
-}`
+}
+```
 
 Create a rotate function:
 
-`rotate = () => {
+```
+rotate = () => {
   this.state.rotation.setValue(0);
   Animated.timing(
     this.state.rotation,
@@ -188,11 +206,13 @@ Create a rotate function:
       easing: Easing.linear,
     }
   ).start(this.rotate);
-}`
+}
+```
 
 Copy/paste the Model component below itself, but above Text, change the Z translate to a positive integer, and add the following transform objects:
 
-`<AnimatedModel
+```
+<AnimatedModel
   lit
   source={{
     obj: asset('untitled.obj')
@@ -206,7 +226,8 @@ Copy/paste the Model component below itself, but above Text, change the Z transl
       {rotateZ: this.state.rotation}
     ]
   }}
-/>`
+/>
+```
 
 ## Deployment
 
