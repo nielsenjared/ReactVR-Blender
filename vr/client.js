@@ -8,7 +8,7 @@ import {VRInstance} from 'react-vr-web';
 function init(bundle, parent, options) {
   const vr = new VRInstance(bundle, 'ReactVR_Blender', parent, {
     // Add custom options here
-    enableHotReload: true,
+    // enableHotReload: true,
     ...options,
   });
   vr.render = function() {
