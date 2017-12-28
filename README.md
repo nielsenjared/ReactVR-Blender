@@ -1,6 +1,6 @@
-#ReactVR + Blender
+# ReactVR + Blender
 
-##Getting Started with ReactVR
+## Getting Started with ReactVR
 
 `npm install -g react-vr-cli`
 
@@ -16,12 +16,12 @@ Open http://localhost:8081/vr/
 
 Well, hello there...
 
-##Hot Reload
+## Hot Reload
 
 Adding hot reloading to your app is great for development. To do so, in vr/client.js, on line 10, just above `...options`, add:
 `enableHotReload: true,`
 
-##Creating Equirectangular Panoramic Images with Blender
+## Creating Equirectangular Panoramic Images with Blender
 
 Download the latest version of Blender http://blender.org Ensure that you are using a version later than 2.77.
 
@@ -45,13 +45,13 @@ Hit F12 to render. Then F3 to save the image file.
 
 Save the .png in the static_assets folder of your ReactVR app.
 
-##Hacking ReactVR
+## Hacking ReactVR
 
 On line 14 of index.vr.js, replace chess-world.jpg with your newly created image.
 
 Next delete the <Text> component and its contained styles. Save and refresh your app.
 
-##Importing Models
+## Importing Models
 
 Open a new Blender file, add a mesh, and under File, select Export > Wavefront (.obj).
 
@@ -99,7 +99,7 @@ It will be positioned behind the Text component, so remove backgroundColor from 
   hello
 </Text>`
 
-##Adding Light
+## Adding Light
 
 From react-vr, import AmbientLight and PointLight:
 
@@ -141,7 +141,7 @@ To the Model component add a `lit` property:
   }}
 />`
 
-##Animating Models
+## Animating Models
 
 Import from react-vr the Animated component and from react-native the Easing component:
 
@@ -208,7 +208,7 @@ Copy/paste the Model component below itself, but above Text, change the Z transl
   }}
 />`
 
-##Deployment
+## Deployment
 
 
 `npm run bundle`
