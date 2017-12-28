@@ -31,7 +31,7 @@ Open Blender and create a scene.
 
 Be sure to switch to Cycles Render. You can't render panoramic images for VR using the default engine.
 
-Under the Render panel, in Dimensions, set the size to 2:1 with a minimum value of 2048 x 1024.
+Under the Render panel, in Dimensions, set the aspect ratio to 2:1 with a minimum value of 2048 x 1024 (4096 x 2048 is better but will take much longer to render).
 
 Next, in the 3D viewport, select the camera. Shift + S and Selection to Cursor.
 
@@ -49,9 +49,9 @@ Save the .png in the static_assets folder of your ReactVR app.
 
 ## Hacking ReactVR
 
-On line 14 of index.vr.js, replace chess-world.jpg with your newly created image.
+On line 14 of index.vr.js, replace `chess-world.jpg` with your newly created image.
 
-Next delete the <Text> component and its contained styles. Save and refresh your app.
+Save and refresh your app.
 
 ## Importing Models
 
@@ -59,7 +59,7 @@ Open a new Blender file, add a mesh, and under File, select Export > Wavefront (
 
 Save the file in static_assets.
 
-In index.vr.js, add Model and Animated to your react-vr import statement.
+In index.vr.js, add `Model` and `Animated` to your react-vr import statement.
 
 ```
 import {
@@ -72,7 +72,7 @@ import {
 } from 'react-vr';
 ```
 
-Under your Pano component, add a new Model component:
+Under your `Pano` component, add a new `Model` component:
 
 ```
 <Model
@@ -88,7 +88,7 @@ Under your Pano component, add a new Model component:
 />
 ```
 
-It will be positioned behind the Text component, so remove backgroundColor from the style.
+It will be positioned behind the `Text` component, so remove `backgroundColor` from the `style` attribute.
 
 ```
 <Text
@@ -108,7 +108,7 @@ It will be positioned behind the Text component, so remove backgroundColor from 
 
 ## Adding Light
 
-From react-vr, import AmbientLight and PointLight:
+From `react-vr`, import `AmbientLight` and `PointLight`:
 
 ```
 import {
@@ -123,7 +123,7 @@ import {
 } from 'react-vr';
 ```
 
-Under the Pano component, add AmbientLight and PointLight components:
+Under the `Pano` component, add `AmbientLight` and `PointLight` components:
 
 ```
 <AmbientLight intensity={0.5} />
@@ -137,7 +137,7 @@ Under the Pano component, add AmbientLight and PointLight components:
 />
 ```
 
-To the Model component add a `lit` property:
+To the `Model` component add a `lit` property:
 
 ```
 <Model
@@ -156,7 +156,7 @@ To the Model component add a `lit` property:
 
 ## Animating Models
 
-Import from react-vr the Animated component and from react-native the Easing component:
+Import from `react-vr` the Animated component and from `react-native` the `Easing` component:
 
 ```
 import {
@@ -176,12 +176,12 @@ import {
 } from 'react-native';
 ```
 
-Declare a component to animate using the Animated component:
+Declare a component to animate using the `Animated` component:
 
 `const AnimatedModel = Animated.createAnimatedComponent(Model);
 `
 
-In order to animate a model, we need to use state. At the top of the ReactVR_Blender component, add:
+In order to animate a model, we need to use state. At the top of the `ReactVR_Blender` component, add:
 
 ```
 state = {
@@ -209,7 +209,7 @@ rotate = () => {
 }
 ```
 
-Copy/paste the Model component below itself, but above Text, change the Z translate to a positive integer, and add the following transform objects:
+Copy/paste the `Model` component below itself, but above `Text`, change the Z translate to a positive integer, and add the following transform objects:
 
 ```
 <AnimatedModel
@@ -231,7 +231,7 @@ Copy/paste the Model component below itself, but above Text, change the Z transl
 
 ## Deployment
 
-While it's incredibly useful for development, I discovered that hot reload throws an error after bundling which prevents the app from finding static_assets. So comment it out in vr/client.js:
+While it's incredibly useful for development, I discovered that hot reload throws an error after bundling which prevents the app from finding static_assets. So comment it out in `vr/client.js`:
 
 `//enableHotReload: true,`
 
@@ -239,9 +239,9 @@ Then:
 
 `npm run bundle`
 
-You will be prompted to move client.bundle.js and index.bundle.js to a new directory with your index.html. Do so.
+You will be prompted to move `client.bundle.js` and `index.bundle.js` to a new directory with your `index.html`. Do so.
 
-Edit index.html along these lines:
+Edit `index.html` along these lines:
 
 ```
 <html>
@@ -267,3 +267,8 @@ Edit index.html along these lines:
   </body>
 </html>
 ```
+
+## Resources
+* https://medium.com/cinematicvr/panoramic-rendering-in-blender-287bee2aab0d
+* https://facebook.github.io/react-vr/docs/getting-started.html
+* https://hashrocket.com/blog/posts/playing-with-react-vr
