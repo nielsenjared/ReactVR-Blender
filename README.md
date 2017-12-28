@@ -231,22 +231,4 @@ Copy/paste the Model component below itself, but above Text, change the Z transl
 
 ## Deployment
 
-
 `npm run bundle`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Adapted from: https://hashrocket.com/blog/posts/playing-with-react-vr
