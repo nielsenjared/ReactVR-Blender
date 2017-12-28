@@ -1,5 +1,7 @@
 # ReactVR + Blender
 
+https://nielsenjared.github.io/ReactVR-Blender/
+
 ## Getting Started with ReactVR
 
 Install react-vr-cli:
@@ -239,7 +241,7 @@ Then:
 
 `npm run bundle`
 
-You will be prompted to move `client.bundle.js` and `index.bundle.js` to a new directory with your `index.html`. Do so.
+You will be prompted to move `client.bundle.js` and `index.bundle.js` to a new directory alongside your `index.html`. Do so. Because we used static assets, you will also need to copy your `static_assets` folder there, too.
 
 Edit `index.html` along these lines:
 
@@ -267,6 +269,8 @@ Edit `index.html` along these lines:
   </body>
 </html>
 ```
+
+If you want to deploy to GitHub pages, like I did, you can either create a `gh-pages` branch or a `docs` folder on `master`. Instructions here: https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/ 
 
 ## Resources
 * https://medium.com/cinematicvr/panoramic-rendering-in-blender-287bee2aab0d
